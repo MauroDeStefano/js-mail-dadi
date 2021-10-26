@@ -1,26 +1,35 @@
 
-let invitedList = ["m", "ddd@hotmail.it", "ppp@yahoo.com"];
+let invitedList = ["ddd@hotmail.it", "ppp@yahoo.com","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it","ddd@hotmail.it",];
 
 console.log(invitedList.length);
 console.log(invitedList);
 
+//Prendiamo l'imput dal utente
+
 const invitedInput = prompt("scrivi il tuo nome per vedere se sei presente al elenco");
 
-console.log(invitedInput.toUpperCase());
+
+//Creiamo le variabili
 
 const container = document.querySelector("div");
 const boxResult = document.createElement("div");
 boxResult.className = "box";
 container.append(boxResult);
 
+//diamo di default un messaggio di errore per chi inserisce una mail non valida
+
 let resultCheck = "Mi spiace, non sei presente nella lista di mail";
+
+//creiamo il box per stampare in output
 
 const boxDice = document.createElement("div");
 boxDice.classList.add("box");
 container.append(boxDice);
 
+//creiamo un ciclo per controllare tutti presenti
+
 for(let i = 0; i < invitedList.length; i++){
-  if(invitedList[i].toUpperCase().includes(invitedInput.toUpperCase()) && invitedInput.toUpperCase() != ""){
+  if(invitedList[i].toUpperCase() === (invitedInput.toUpperCase()) && invitedInput.toUpperCase() != ""){
     resultCheck = "Puoi partecipare";
     console.log("trovato");
   }
@@ -44,8 +53,7 @@ if(resultCheck == "Puoi partecipare"){
   }else{
     resultDice = "avete pareggiato";
   }
-
-  
+ 
   boxDice.innerHTML = `
     Il tuo dado ha fatto "${yourNumber}"<br>
     il dado del computer ha fatto "${pcNumber}"<br>
